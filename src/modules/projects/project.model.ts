@@ -1,6 +1,7 @@
 import { model, Schema } from "mongoose";
+import { TProject } from "./project.interface";
 
-const projectSchema = new Schema({
+const projectSchema = new Schema <TProject>({
     thumbnail: {
         type: String,
         required: true,
@@ -47,6 +48,6 @@ const projectSchema = new Schema({
     timestamps: true,
 });
 
-const Project = model('Project', projectSchema);
+const Project = model<TProject>('Project', projectSchema);
 
 export default Project;

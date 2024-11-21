@@ -9,7 +9,7 @@ const createBlog = async (payload: TBlog) => {
 };
 
 const getAllBlogs = async () => {
-    const blogs = await Blog.find({});
+    const blogs = await Blog.find({}).sort({ createdAt: -1 });
     return blogs;
 };
 
