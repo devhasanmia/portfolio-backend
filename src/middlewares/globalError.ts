@@ -15,7 +15,12 @@ export const globalError = (
     ...(process.env.NODE_ENV === "development" && { stack: err.stack }),
   };
   if (err instanceof ZodError) {
-    const errorMessages = err.errors.map(e => e.message);
+    const errorMessages = err.errors.map(e => {
+      return {
+        path: e.path.join("."),
+        message: e.message,
+      }
+    });
     res.status(400).json({
       success: false,
       message: "Validation failed",
