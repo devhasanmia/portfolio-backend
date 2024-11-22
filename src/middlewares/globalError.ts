@@ -1,4 +1,4 @@
-import { ZodError } from 'zod'; // Import ZodError for type checking
+import { ZodError } from 'zod';
 import { Request, Response, NextFunction } from 'express';
 
 export const globalError = (

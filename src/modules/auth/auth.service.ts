@@ -13,12 +13,10 @@ const login = async ({ email, password }: TAdminAuth) => {
     if (!isMatch) {
         throw new Error("Invalid email address or password");
     }
-    // Generate a JWT token
     const token = jwt.sign({ id: admin._id, email: admin.email, }, config.JWT_SECRET as string,
         { expiresIn: "1d" }
     );
     return token;
-
 };
 
 export const adminAuthService = {
