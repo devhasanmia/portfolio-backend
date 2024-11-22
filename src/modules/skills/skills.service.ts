@@ -9,7 +9,7 @@ const addSkill = async (payload: TSkills) => {
 }
 
 const getAllSkills = async () => {
-    const skills = await Skill.find({});
+    const skills = await Skill.find({}).sort({ createdAt: -1 })
     return skills;
 }
 
