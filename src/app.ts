@@ -16,7 +16,10 @@ const limiter = rateLimit({
 // Middleware Configuration
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors({
+  origin: "https://devhasanmia-portfolio.vercel.app",
+  credentials: true
+}));
 app.use(morgan("dev"));
 app.use(limiter);
 
